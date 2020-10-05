@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 //we are going to use session variables so we need to enable sessions
 session_start();
-
+require 'validator.php';
+validate();
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
     var_dump($_GET);
@@ -18,4 +19,4 @@ function whatIsHappening() {
 $totalValue = 0;
 require 'product.php';
 require 'form-view.php';
-require 'validator.php';
+
