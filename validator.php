@@ -69,5 +69,5 @@ function calculateCost($orderedStuff, $products){
         if($stuffs == 1){
             $totalPrice += $products[$i]['price'];
         }
-    } echo $totalPrice;
+    } echo "Will cost ".$totalPrice. " euro"; echo "Will be delivered around ". date("H:i",time()+7200);
 }
