@@ -1,4 +1,12 @@
 <!doctype html>
+<?php
+$dEmail = $_SESSION["email"];
+$dStreet = $_SESSION["street"];
+$dStreetNumber = $_SESSION["streetNumber"];
+$dCity = $_SESSION["city"];
+$dZip = $_SESSION["zip"];
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +34,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email" class="form-control"/>
+                <input type="text" id="email" name="email" class="form-control" value="<?php $dEmail ?>"/>
             </div>
             <div></div>
         </div>

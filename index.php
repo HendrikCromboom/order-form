@@ -5,6 +5,7 @@ declare(strict_types=1);
 session_start();
 require 'validator.php';
 validate();
+whatIsHappening();
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
     var_dump($_GET);

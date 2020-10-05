@@ -57,6 +57,7 @@ function setSession($email, $street, $streetNumber, $city, $zip){
     $_SESSION["streetNumber"] = $streetNumber;
     $_SESSION["city"] = $city;
     $_SESSION["zip"] = $zip;
+    $_SESSION["set"] = true;
 }
 function postEmailSomewhere(){
     echo "good";
