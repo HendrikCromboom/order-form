@@ -1,10 +1,18 @@
 <?php
 function validate($products){
+    if ($_POST['email'] != null){
     $email = $_POST['email'];
     $street = $_POST['street'];
     $streetNumber = $_POST['streetnumber'];
     $city = $_POST['city'];
-    $zip = $_POST['zipcode'];
+    $zip = $_POST['zipcode'];}
+    else{
+        $email = $_SESSION["email"];
+        $street = $_SESSION["street"];
+        $streetNumber = $_SESSION["streetNumber"];
+        $city = $_SESSION["city"];
+        $zip = $_SESSION["zip"];
+    }
     $orderedStuff = $_POST['products'];
     setSession($email, $street, $streetNumber, $city, $zip);
     validateEmail($email, $street, $streetNumber, $city, $zip, $orderedStuff, $products);
@@ -50,7 +58,6 @@ function setSession($email, $street, $streetNumber, $city, $zip){
     $_SESSION["streetNumber"] = $streetNumber;
     $_SESSION["city"] = $city;
     $_SESSION["zip"] = $zip;
-    $_SESSION["set"] = true;
 }
 function throwErrorSomewhere(){
     echo "bad";
@@ -70,4 +77,5 @@ function calculateCost($orderedStuff, $products){
             $totalPrice += $products[$i]['price'];
         }
     } echo "Will cost ".$totalPrice. " euro"; echo "Will be delivered around ". date("H:i",time()+7200);
+
 }

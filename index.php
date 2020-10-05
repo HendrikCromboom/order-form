@@ -6,6 +6,7 @@ session_start();
 require 'product.php';
 require 'validator.php';
 validate($products);
+
 whatIsHappening();
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
@@ -21,4 +22,5 @@ function whatIsHappening() {
 $totalValue = 0;
 
 require 'form-view.php';
+
 
