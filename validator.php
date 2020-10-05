@@ -6,6 +6,9 @@ function validate(){
     $streetNumber = $_POST['streetnumber'];
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
+    $orderedStuff = $_POST['products'];
+
+
 
     setSession($email, $street, $streetNumber, $city, $zip);
     validateEmail($email);
@@ -13,6 +16,7 @@ function validate(){
     validateStreetNumber($streetNumber);
     validateCity($city);
     validateZip($zip);
+    orderStuff($orderedStuff);
 
 
 }
@@ -64,4 +68,11 @@ function postEmailSomewhere(){
 }
 function throwErrorSomewhere(){
     echo "bad";
+}
+function orderStuff($orderedStuff){
+  for($i=0; $i>count($products); $i++){
+      if($orderedStuff[$i]==null){
+          $orderedStuff[$i]= 0;
+      } echo $orderedStuff[$i];
+  }
 }

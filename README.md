@@ -15,7 +15,7 @@
 
     Prefill the address fields with the saved address. Should you use a COOKIE or a SESSION variable for this?
 
-###### Step 3: Switch between drinks and food
+###### Step 3: Switch between drinks and food [X]
 
     There are 2 different $product arrays, one with drinks, the other with food. Depending on which link at the top of the page you click, you should be able to order food or drinks (never both). The food items should be the default.
 

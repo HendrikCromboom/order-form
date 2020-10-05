@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 //we are going to use session variables so we need to enable sessions
 session_start();
+require 'product.php';
 require 'validator.php';
 validate();
 whatIsHappening();
@@ -18,6 +19,6 @@ function whatIsHappening() {
 }
 
 $totalValue = 0;
-require 'product.php';
+
 require 'form-view.php';
 
