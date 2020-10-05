@@ -34,7 +34,7 @@ $dZip = $_SESSION["zip"];
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email" class="form-control" value="<?php $dEmail ?>"/>
+                <input type="text" id="email" name="email" class="form-control" value="<?php echo $dEmail ?>"/>
             </div>
             <div></div>
         </div>
