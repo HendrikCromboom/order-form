@@ -1,56 +1,45 @@
 <?php
-
-function validate(){
+function validate($products){
     $email = $_POST['email'];
     $street = $_POST['street'];
     $streetNumber = $_POST['streetnumber'];
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
     $orderedStuff = $_POST['products'];
-
-
-
     setSession($email, $street, $streetNumber, $city, $zip);
-    validateEmail($email);
-    validateStreet($street);
-    validateStreetNumber($streetNumber);
-    validateCity($city);
-    validateZip($zip);
-    orderStuff($orderedStuff);
-
-
+    validateEmail($email, $street, $streetNumber, $city, $zip, $orderedStuff, $products);
 }
-function validateEmail($email){
+function validateEmail($email, $street, $streetNumber, $city, $zip, $orderedStuff, $products){
     if (filter_var($email, FILTER_VALIDATE_EMAIL)){
-        postEmailSomewhere();
+        validateStreet($street, $streetNumber, $city, $zip, $orderedStuff, $products);
     }else{
         throwErrorSomewhere();
     }
 }
-function validateStreet($street){
+function validateStreet($street, $streetNumber, $city, $zip, $orderedStuff, $products){
     if ($street != null){
-        postEmailSomewhere();
+        validateStreetNumber($streetNumber, $city, $zip, $orderedStuff, $products);
     }else{
         throwErrorSomewhere();
     }
 }
-function validateStreetNumber($streetNumber){
+function validateStreetNumber($streetNumber, $city, $zip, $orderedStuff, $products){
     if (is_numeric($streetNumber)){
-        postEmailSomewhere();
+        validateCity($city, $zip, $orderedStuff, $products);
     }else{
         throwErrorSomewhere();
     }
 }
-function validateCity($city){
-    if (is_numeric($city)){
-        postEmailSomewhere();
+function validateCity($city, $zip, $orderedStuff, $products){
+    if (!is_numeric($city)){
+        validateZip($zip, $orderedStuff, $products);
     }else{
         throwErrorSomewhere();
     }
 }
-function validateZip($zip){
+function validateZip($zip, $orderedStuff, $products){
     if (is_numeric($zip)){
-        postEmailSomewhere();
+        orderStuff($orderedStuff, $products);
     }else{
         throwErrorSomewhere();
     }
@@ -63,16 +52,22 @@ function setSession($email, $street, $streetNumber, $city, $zip){
     $_SESSION["zip"] = $zip;
     $_SESSION["set"] = true;
 }
-function postEmailSomewhere(){
-    echo "good";
-}
 function throwErrorSomewhere(){
     echo "bad";
 }
-function orderStuff($orderedStuff){
-  for($i=0; $i>count($products); $i++){
+function orderStuff($orderedStuff, $products){
+  for($i=0; $i<count($products); $i++){
       if($orderedStuff[$i]==null){
           $orderedStuff[$i]= 0;
-      } echo $orderedStuff[$i];
+      }
   }
+  calculateCost($orderedStuff, $products);
+}
+function calculateCost($orderedStuff, $products){
+    $totalPrice = 0;
+    foreach ($orderedStuff AS $i => $stuffs){
+        if($stuffs == 1){
+            $totalPrice += $products[$i]['price'];
+        }
+    } echo $totalPrice;
 }
