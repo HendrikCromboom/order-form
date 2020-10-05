@@ -21,35 +21,41 @@ function validateEmail($email, $street, $streetNumber, $city, $zip, $orderedStuf
     if (filter_var($email, FILTER_VALIDATE_EMAIL)){
         validateStreet($street, $streetNumber, $city, $zip, $orderedStuff, $products);
     }else{
-        throwErrorSomewhere();
+        global $errorEmail;
+        $errorEmail = 'red';
+
     }
 }
 function validateStreet($street, $streetNumber, $city, $zip, $orderedStuff, $products){
     if ($street != null){
         validateStreetNumber($streetNumber, $city, $zip, $orderedStuff, $products);
     }else{
-        throwErrorSomewhere();
+        global $errorStreet;
+        $errorStreet = 'red';
     }
 }
 function validateStreetNumber($streetNumber, $city, $zip, $orderedStuff, $products){
     if (is_numeric($streetNumber)){
         validateCity($city, $zip, $orderedStuff, $products);
     }else{
-        throwErrorSomewhere();
+        global $errorStreetNumber;
+        $errorStreetNumber = 'red';
     }
 }
 function validateCity($city, $zip, $orderedStuff, $products){
     if (!is_numeric($city)){
         validateZip($zip, $orderedStuff, $products);
     }else{
-        throwErrorSomewhere();
+        global $errorCity;
+        $errorCity = 'red';
     }
 }
 function validateZip($zip, $orderedStuff, $products){
     if (is_numeric($zip)){
         orderStuff($orderedStuff, $products);
     }else{
-        throwErrorSomewhere();
+        global $errorZip;
+        $errorZip = 'red';
     }
 }
 function setSession($email, $street, $streetNumber, $city, $zip){
@@ -76,6 +82,8 @@ function calculateCost($orderedStuff, $products){
         if($stuffs == 1){
             $totalPrice += $products[$i]['price'];
         }
-    } echo "Will cost ".$totalPrice. " euro"; echo "Will be delivered around ". date("H:i",time()+7200);
+    }
+    setTotalValue($totalPrice);
+    echo "Will cost ".$totalPrice. " euro"; echo "Will be delivered around ". date("H:i",time()+7200);
 
 }

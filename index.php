@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 //we are going to use session variables so we need to enable sessions
 session_start();
+require 'cookies.php';
+require 'error.php';
 require 'product.php';
 require 'validator.php';
 validate($products);
@@ -19,7 +21,6 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
-$totalValue = 0;
 
 require 'form-view.php';
 

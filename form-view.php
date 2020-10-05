@@ -5,7 +5,6 @@ $dStreet = $_SESSION["street"];
 $dStreetNumber = $_SESSION["streetNumber"];
 $dCity = $_SESSION["city"];
 $dZip = $_SESSION["zip"];
-
 ?>
 <html lang="en">
 <head>
@@ -33,8 +32,8 @@ $dZip = $_SESSION["zip"];
     <form method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email" class="form-control" value="<?php echo $dEmail ?>"/>
+                <label style="color: <?php echo $errorEmail ?>" for="email">E-mail:</label>
+                <input type="text" id="email" name="email" class="form-control" value="<?php echo $dEmail ?>" />
             </div>
             <div></div>
         </div>
@@ -44,21 +43,21 @@ $dZip = $_SESSION["zip"];
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="street">Street:</label>
+                    <label style="color: <?php echo $errorStreet ?>" for="street">Street:</label>
                     <input type="text" name="street" id="street" class="form-control" value="<?php echo $dStreet ?>">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="streetnumber">Street number:</label>
+                    <label style="color: <?php echo $errorStreetNumber ?>" for="streetnumber">Street number:</label>
                     <input type="text" id="streetnumber" name="streetnumber" class="form-control" value="<?php echo $dStreetNumber ?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="city">City:</label>
+                    <label style="color: <?php echo $errorCity ?>" for="city">City:</label>
                     <input type="text" id="city" name="city" class="form-control" value="<?php echo $dCity ?>">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="zipcode">Zipcode</label>
+                    <label style="color: <?php echo $errorZip ?>" for="zipcode">Zipcode</label>
                     <input type="text" id="zipcode" name="zipcode" class="form-control" value="<?php echo $dZip ?>">
                 </div>
             </div>
