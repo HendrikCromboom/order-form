@@ -6,11 +6,15 @@ function validate(){
     $streetNumber = $_POST['streetnumber'];
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
-validateEmail($email);
-validateStreet($street);
-validateStreetNumber($streetNumber);
-validateCity($city);
-validateZip($zip);
+
+    setSession($email, $street, $streetNumber, $city, $zip);
+    validateEmail($email);
+    validateStreet($street);
+    validateStreetNumber($streetNumber);
+    validateCity($city);
+    validateZip($zip);
+
+
 }
 function validateEmail($email){
     if (filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -46,4 +50,11 @@ function validateZip($zip){
     }else{
         throwErrorSomewhere();
     }
+}
+function setSession($email, $street, $streetNumber, $city, $zip){
+    $_SESSION["email"] = $email;
+    $_SESSION["street"] = $street;
+    $_SESSION["streetNumber"] = $streetNumber;
+    $_SESSION["city"] = $city;
+    $_SESSION["zip"] = $zip;
 }
