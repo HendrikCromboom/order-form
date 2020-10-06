@@ -2,12 +2,14 @@
 $totalValue = 0;
 
 if($_COOKIE['totalValue'] == null){
-    setcookie('totalValue', $totalValue, 36000, '/');
+    $_COOKIE['totalValue'] = $totalValue;
+    setcookie('totalValue', $totalValue, time() + 60*60*24*30, '/');
 }else{$totalValue = $_COOKIE['totalValue'];}
 
 function setTotalValue($val){
     global $totalValue;
     $totalValue = $_COOKIE['totalValue'];
     $totalValue += $val;
-    setcookie('totalValue', $totalValue, 36000, '/');
+    $_COOKIE['totalValue'] = $totalValue;
+    setcookie('totalValue', $totalValue, time() + 60*60*24*30, '/');
 }

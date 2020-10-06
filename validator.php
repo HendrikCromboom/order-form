@@ -82,8 +82,5 @@ function calculateCost($orderedStuff, $products){
     }
     setTotalValue($totalPrice);
     echo "Will cost ".$totalPrice. " euro"; echo "Will be delivered around ". date("H:i",time()+7200);
-    sendMail();
-}
-function sendMail(){
-    mail('hcromboom@gmail.com', 'Your order', 'Test' );
+
 }
