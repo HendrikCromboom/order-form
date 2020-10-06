@@ -19,15 +19,15 @@
 
     There are 2 different $product arrays, one with drinks, the other with food. Depending on which link at the top of the page you click, you should be able to order food or drinks (never both). The food items should be the default.
 
-###### Step 4: Calculate the delivery time
+###### Step 4: Calculate the delivery time [X]
 
     Calculate the expected delivery time for the product. For normal delivery all orders are fulfilled in 2 hours, for express delivery it is only 45 minutes. Add this expected time to the confirmation message. If you are wondering: they deliver with drones.
 
-###### Step 5: Total revenue counter
+###### Step 5: Total revenue counter [X]
 
     Add a counter at the bottom of the page that shows the total amount of money that has been spent on this page from this browser. Should you use a COOKIE or a SESSION variable for this?
 
-###### Step 6: Send the e-mail
+###### Step 6: Send the e-mail [X]
 
     Use the mail() function in PHP to send an e-mail with a summary of the order. The e-mail should contain all information filled in by the user + the total price of all ordered items. Display the expected delivery time. Make sure to not forget the extra cost for express delivery! Sent this e-mail to the user + a predefined e-mail of the restaurant owner.
     Nice to have features
