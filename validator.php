@@ -65,9 +65,6 @@ function setSession($email, $street, $streetNumber, $city, $zip){
     $_SESSION["city"] = $city;
     $_SESSION["zip"] = $zip;
 }
-function throwErrorSomewhere(){
-    echo "bad";
-}
 function orderStuff($orderedStuff, $products){
   for($i=0; $i<count($products); $i++){
       if($orderedStuff[$i]==null){
@@ -85,5 +82,8 @@ function calculateCost($orderedStuff, $products){
     }
     setTotalValue($totalPrice);
     echo "Will cost ".$totalPrice. " euro"; echo "Will be delivered around ". date("H:i",time()+7200);
-
+    sendMail();
+}
+function sendMail(){
+    mail('hcromboom@gmail.com', 'Your order', 'Test' );
 }

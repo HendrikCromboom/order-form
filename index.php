@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
-
+require 'cookies.php';
 //we are going to use session variables so we need to enable sessions
 session_start();
-require 'cookies.php';
+
 require 'error.php';
 require 'product.php';
 require 'validator.php';
