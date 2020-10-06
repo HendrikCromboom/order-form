@@ -6,10 +6,11 @@ session_start();
 
 require 'error.php';
 require 'product.php';
+require 'mailbot.php';
 require 'validator.php';
 validate($products);
 
-whatIsHappening();
+//whatIsHappening();
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
     var_dump($_GET);
