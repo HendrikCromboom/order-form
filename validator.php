@@ -51,7 +51,7 @@ function validateCity($email, $street, $streetNumber, $city, $zip, $orderedStuff
     }
 }
 function validateZip($email, $street, $streetNumber, $city, $zip, $orderedStuff, $products){
-    if (is_numeric($zip)){
+    if (is_numeric($zip) && $zip> 1000){
         orderStuff($email, $street, $streetNumber, $city, $zip, $orderedStuff, $products);
     }else{
         global $errorZip;
